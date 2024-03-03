@@ -1,0 +1,33 @@
+:root {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: white;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: Montserrat;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #ff6060;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.formCard {
+  max-width: 600px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 200px;
+  background-color: #f6f6f67a !important;
+}
