@@ -6,8 +6,14 @@ const app = express();
 const mongoose = require("mongoose");
 
 // On importe toutes nos routes
-const logementsRoutes = require("./routes/logements.js");
+const ateliersRoutes = require("./routes/ateliers.js");
+const spectaclesRoutes = require("./routes/spectacles.js");
 const userRoutes = require("./routes/user.js");
+const eventsRoutes = require("./routes/events.js");
+
+// import helmet 
+var helmet = require('helmet');
+app.use(helmet());
 
 app.use(express.json());
 
@@ -18,8 +24,9 @@ app.use((req, res, next) => {
   next(); // L'autorisation des différentes méthodes HHTP
 });
 
+
 mongoose
-  .connect("mongodb+srv://adminTest:kuFFbQ3TZb9sfsNl@cluster0.2vatb0h.mongodb.net/casa?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://julesherve17:Jesuisrayz1@cluster0.essflmr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -27,8 +34,11 @@ mongoose
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
 // A la place des anciens app.use()
-app.use("/api/logements", logementsRoutes);
+app.use("/api/ateliers", ateliersRoutes);
+app.use("/api/spectacles", spectaclesRoutes);
+app.use("/api/events", eventsRoutes);
 app.use("/api/user", userRoutes);
+
 
 // On export l’application
 module.exports = app;

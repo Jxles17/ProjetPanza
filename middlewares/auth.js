@@ -11,11 +11,13 @@ module.exports = (req, res, next) => {
       const token = req.headers.authorization.split(" ")[1];
       const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
       const userId = decodedToken.userId;
+      const userRole = decodedToken.role;
 
       // l'objet req/request est transmis aux routes qui vont être appelées
       // on va donc créer un objet ici auth avec comme info l'id
       req.auth = {
         userId: userId,
+        role: userRole
       };
       // Si tout va bien, on passe au code suivant avec next
       next();
